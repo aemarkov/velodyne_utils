@@ -1,0 +1,26 @@
+<launch>
+    <arg name="pcap" value="/home/garrus/ros/src/data/move.pcap"/>
+    <arg name="bag" default=""/>
+    <arg name="log_path"/>
+
+    <arg name="is_bag" value="$(eval bag!='')"/>
+
+    <!-- Play bag file if "bag" arg is set -->
+    <node name="play" pkg="rosbag" type="play" output="screen" if="$(arg is_bag)" args="$(arg bag)"/>
+
+    <!-- Run velodyne and ZED nodes otherwise -->
+    <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch" unless="$(arg is_bag)"/>
+    <include file="$(find zed_wrapper)/launch/zed.launch" unless="$(arg is_bag)"/>
+
+    <!-- LiDAR SLAM -->
+    <include file="$(find loam_velodyne)/launch/loam_velodyne.launch">
+        <arg name="rviz" value="false"/>
+    </include>
+
+    <!-- Logger-->
+    <node name="logger" pkg="velodyne_slam_logger" type="logger.py" output="screen">
+        <param name="log_path" value="$(arg log_path)"/>
+    </node>
+
+    <!--<node name="rviz" pkg="rviz" type="rviz" args="-d $(find velodyne_slam_logger)/rviz/view_lidar.rviz" />-->
+</launch>
