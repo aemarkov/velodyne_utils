@@ -18,9 +18,9 @@
     </include>
 
     <!-- Logger-->
-    <node name="logger" pkg="velodyne_slam_logger" type="logger.py" output="screen">
+    <node name="logger" pkg="velodyne_utils" type="logger.py" output="screen">
         <param name="log_path" value="$(arg log_path)"/>
     </node>
 
-    <!--<node name="rviz" pkg="rviz" type="rviz" args="-d $(find velodyne_slam_logger)/rviz/view_lidar.rviz" />-->
+    <!--<node name="rviz" pkg="rviz" type="rviz" args="-d $(find velodyne_utils)/rviz/view_lidar.rviz" />-->
 </launch>
