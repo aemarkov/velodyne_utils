@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>velodyne_slam_logger</name>
+  <name>velodyne-utils</name>
   <version>0.0.0</version>
-  <description>Package with some helper stuff for Loam Velodyne</description>
+  <description>Package with some utilities and experiments for Velodyne LiDAR</description>
 
   <maintainer email="markovalex95@gmail.com">Markov Alexey</maintainer>
   <license>TODO</license>
