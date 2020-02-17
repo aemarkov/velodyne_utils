@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>velodyne-utils</name>
+  <name>velodyne_utils</name>
   <version>0.0.0</version>
   <description>Package with some utilities and experiments for Velodyne LiDAR</description>
 
